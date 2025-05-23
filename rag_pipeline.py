@@ -29,11 +29,14 @@ class RAGChatbot:
         )
 
         # panggil OpenAI ChatCompletion (GPT-3.5 turbo)
-       response = await openai.chat.completions.acreate(
+       import openai
+
+response = openai.chat.completions.create(
     model="gpt-3.5-turbo",
     messages=messages,
     temperature=0.2,
 )
+
 
 
         # ambil jawaban dari response
