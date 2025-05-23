@@ -1,7 +1,10 @@
-import PyPDF2
+from PyPDF2 import PdfReader
 
 def load_pdf(file):
-    reader = PyPDF2.PdfReader(file)
-    text = " ".join([page.extract_text() for page in reader.pages if page.extract_text()])
-    chunks = text.split(". ")
-    return chunks
+    reader = PdfReader(file)
+    texts = []
+    for page in reader.pages:
+        text = page.extract_text()
+        if text:
+            texts.append(text)
+    return texts
