@@ -29,15 +29,12 @@ class RAGChatbot:
         )
 
         # panggil OpenAI ChatCompletion (GPT-3.5 turbo)
-        response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
-            messages=[
-                {"role": "system", "content": "You are a helpful assistant."},
-                {"role": "user", "content": prompt},
-            ],
-            max_tokens=512,
-            temperature=0.2,
-        )
+       response = await openai.chat.completions.acreate(
+    model="gpt-3.5-turbo",
+    messages=messages,
+    temperature=0.2,
+)
+
 
         # ambil jawaban dari response
         answer = response.choices[0].message.content.strip()
