@@ -4,7 +4,8 @@ from rag_pipeline import RAGChatbot
 import os
 from dotenv import load_dotenv
 
-load_dotenv()  # load environment variables dari .env
+# Load environment variables dari file .env
+load_dotenv()
 
 st.set_page_config(page_title="RAG Chatbot with PDF", layout="centered")
 st.title("📚 Chat with Your PDF - RAG Chatbot")
